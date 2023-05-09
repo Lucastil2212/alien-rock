@@ -93,9 +93,23 @@
         }
 
         button {
-            font-size: 24px;
-            padding: 20px;
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            outline: none;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #536dfe;
+        }
+
+        button:active {
+            background-color: #1a237e;
         }
     </style>
 </head>
@@ -181,6 +195,22 @@
             <button id="adntmenr">ADNTMENR</button>
             <button id="band-bamd">BAND BAMD</button>
             <button id="aanthater">AANTHATER</button>
+
+            <button id="live-anit2">LIVE ANIT 2</button>
+            <button id="adntmenr2">ADNTMENR 2</button>
+            <button id="band-bamd2">BAND BAMD 2</button>
+            <button id="aanthater2">AANTHATER 2</button>
+
+            <button id="live-anit3">LIVE ANIT 3</button>
+            <button id="adntmenr3">ADNTMENR 3</button>
+            <button id="band-bamd3">BAND BAMD 3</button>
+            <button id="aanthater3">AANTHATER 3</button>
+
+            <button id="live-anit4">LIVE ANIT 4</button>
+            <button id="adntmenr4">ADNTMENR 4</button>
+            <button id="band-bamd4">BAND BAMD 4</button>
+            <button id="aanthater4">AANTHATER 4</button>
+
         </div>
         <button id="playButton">PLAY SONG</button>
         <button id="pauseButton">PAUSE SONG</button>
@@ -191,8 +221,16 @@
             const soundFiles = {
                 "live-anit": "Type_Beat__BPM98.wav",
                 "adntmenr": "Latinbeat__BPM95.wav",
-                "band-bamd": "band-bamd-sound.mp3",
-                "aanthater": "aanthater-sound.mp3"
+                "band-bamd": "Typebeat__BPM160 (1).wav",
+                "aanthater": "Cinematic_Rock__BPM92.wav",
+                "live-anit2": "Techno__BPM133.wav",
+                "adntmenr2": "Electro_Pop__BPM150.wav",
+                "band-bamd2": "Rock__BPM110.wav",
+                "aanthater2": "Drum_'n'_Bass__BPM184.wavCinematic_Rock__BPM92.wav",
+                "live-anit3": "Trap__BPM85.wav",
+                "adntmenr3": "HipHop__BPM100.wav",
+                "band-bamd3": "Type_Beat__BPM100.wav",
+                "aanthater3": "Type_Beat__BPM70.wav"
             };
 
             let audio = null;
@@ -245,8 +283,17 @@
                 }
             });
         </script>
-        <div class="fullscreen-image" id="fullscreenImage">
+        <div class="fullscreen-image" id="fullscreenImage1">
             <img src="band-1.jpg" alt="Fullscreen Image" id="fullscreenImg">
+        </div>
+        <div class="fullscreen-image" id="fullscreenImage2">
+            <img src="band-2.jpg" alt="Fullscreen Image" id="fullscreenImg">
+        </div>
+        <div class="fullscreen-image" id="fullscreenImage3">
+            <img src="band-3.jpg" alt="Fullscreen Image" id="fullscreenImg">
+        </div>
+        <div class="fullscreen-image" id="fullscreenImage4">
+            <img src="band-4.jpg" alt="Fullscreen Image" id="fullscreenImg">
         </div>
         <script>
             // Get the elements
