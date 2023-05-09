@@ -74,6 +74,29 @@
         .story a:hover {
             background-color: #666;
         }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .sound-pad {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 24px;
+            padding: 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -149,10 +172,108 @@
             </p>
             <a href="#">Read More</a>
         </div>
-        <!-- Add more stories by duplicating the "story" div and modifying the content -->
+
+        <div class="content">
+            <!-- Existing content goes here -->
+        </div>
+        <div class="sound-pad">
+            <button id="live-anit">LIVE ANIT</button>
+            <button id="adntmenr">ADNTMENR</button>
+            <button id="band-bamd">BAND BAMD</button>
+            <button id="aanthater">AANTHATER</button>
+        </div>
+        <button id="playButton">PLAY SONG</button>
+        <button id="pauseButton">PAUSE SONG</button>
+        <div></div>
+
+        <script>
+            // Load the sound files (URLs) for each band
+            const soundFiles = {
+                "live-anit": "Type_Beat__BPM98.wav",
+                "adntmenr": "Latinbeat__BPM95.wav",
+                "band-bamd": "band-bamd-sound.mp3",
+                "aanthater": "aanthater-sound.mp3"
+            };
+
+            let audio = null;
+
+            // Function to set the audio source for playing
+            function setAudioSource(url) {
+                // Pause and reset the current audio (if any)
+                if (audio) {
+                    audio.pause();
+                    audio.currentTime = 0;
+                }
+                audio = new Audio(url);
+                // Get the pause button element
+                const pauseButton = document.getElementById('pauseButton');
+
+                // Attach a click event listener to the pause button
+                pauseButton.addEventListener('click', () => {
+                    if (audio) {
+                        // Pause the sound
+                        audio.pause();
+                    }
+                });
+            }
+
+            // Attach event listeners to the buttons
+            Object.keys(soundFiles).forEach(id => {
+                const button = document.getElementById(id);
+                button.addEventListener('click', () => setAudioSource(soundFiles[id]));
+            });
+
+            // Get the play button element
+            const playButton = document.getElementById('playButton');
+
+            // Attach a click event listener to the play button
+            playButton.addEventListener('click', () => {
+                if (audio) {
+                    // Play the sound
+                    audio.play();
+                }
+            });
+
+            // Get the pause button element
+            const pauseButton = document.getElementById('pauseButton');
+
+            // Attach a click event listener to the pause button
+            pauseButton.addEventListener('click', () => {
+                if (audio) {
+                    // Pause the sound
+                    audio.pause();
+                }
+            });
+        </script>
+        <div class="fullscreen-image" id="fullscreenImage">
+            <img src="band-1.jpg" alt="Fullscreen Image" id="fullscreenImg">
+        </div>
+        <script>
+            // Get the elements
+            const fullscreenImage = document.getElementById('fullscreenImage');
+            const fullscreenImg = document.getElementById('fullscreenImg');
+
+            // Function to open the fullscreen image
+            function openFullscreenImage(src) {
+                fullscreenImg.src = src;
+                fullscreenImage.style.display = 'flex';
+            }
+
+            // Function to close the fullscreen image
+            function closeFullscreenImage() {
+                fullscreenImage.style.display = 'none';
+                fullscreenImg.src = '';
+            }
+
+            // Add click event listener to the story image
+            const storyImage = document.querySelector('.story img');
+            storyImage.addEventListener('click', () => openFullscreenImage(storyImage.src));
+
+            // Add click event listener to the fullscreen image container
+            fullscreenImage.addEventListener('click', closeFullscreenImage);
+        </script>
 
 
-    </div>
 </body>
 
 </html>
